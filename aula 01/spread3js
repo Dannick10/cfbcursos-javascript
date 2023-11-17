@@ -1,0 +1,13 @@
+const objs=document.getElementsByTagName("div")
+const objs2=[...document.getElementsByTagName("div")]
+
+objs2.forEach(element => {
+    element.innerHTML="cursos"
+    element.style.background = "black"
+    element.style.color = "white"
+   
+    console.log(element)
+});
+
+console.log(objs)
+console.log(objs2)
