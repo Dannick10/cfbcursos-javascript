@@ -9,3 +9,11 @@ el.map((el,i)=>{
     
 })
 
+
+const el2=document.getElementsByTagName('div')
+const val=Array.prototype.map.call(el,({innerHTML})=>innerHTML)
+
+console.log(val)
+
+
+
