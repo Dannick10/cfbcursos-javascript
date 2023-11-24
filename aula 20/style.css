@@ -1,61 +1,56 @@
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     border: none;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.caixa{
+   text-align: center;
+   border: 2px solid red;
+   width: 200px;
+   height: 200px; 
+   margin: auto;
+   box-sizing: border-box;
 }
 
 button{
-    width: 150px;
-    height: 40px;
-    background-color: #025;
-    color: #fff;
-    cursor: pointer;
+   display: block;
+   padding: 20px;
+   background-color: cornflowerblue;
+    margin: 10px auto;
     border-radius: 10px;
+    color: lightblue;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(135, 174, 247);
+    color: rgb(255, 255, 255);
 }
 
 .curso{
-    display: flex;
-    justify-content: center;
-    width: 200px;
-    border: 4px solid #888;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px 0;
+    background-color: rgb(143, 143, 143);
+    color: white;
+    margin: 10px;
+    border-top: 2px solid rgb(170, 147, 147);
     cursor: pointer;
+    box-sizing: border-box;
 }
 
-.destaque{
-    background-color: #800 !important;
-    color: #fcc !important;
-    border-color:  #f00 !important;
-
+.curso:hover{
+    border: none;
 }
 
 .c1{
-    background-color: #ccc;
-    color: #444;
+    border-right: 8px solid green;
+
 }
 
 .c2{
-    background-color: #444;
-    color: #ccc;
+    border-right: 8px solid red;
 }
 
-.caixa{
-    border: 4px solid #000;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    height: 500px;
-    width: 300px;
+.color{
+    background-color: rgb(170, 171, 228) !important;
+    border: none !important;
 }
