@@ -1,23 +1,29 @@
-const caixa1=document.querySelector('#caixa1')
-const curso=[...document.querySelectorAll('.curso')]
-const cursos=['html','css','java script','bootstrap','typescript','node js',' reactNative']
+const caixa1 = document.querySelector('#caixa1')
+const cursos = ['HTML','CSS','JAVASCRIPT','TYPESCRIPT','NODEEXPRESS','REACT']
+const caixa2 = document.createElement('div')
 
-cursos.map((el,chave)=>{ 
+caixa2.setAttribute('id','caixa')
+caixa2.setAttribute('class','caixa')
+
+document.body.appendChild(caixa2)
+
+
+caixa2.style.border = '3px solid grey'
+
+cursos.map((el,chave)=>{
     const novoElemento=document.createElement('div')
-    novoElemento.setAttribute('id','c' + chave + 1)
-    novoElemento.setAttribute('class','curso c2')
-    novoElemento.innerHTML=el
-
+    novoElemento.setAttribute('id','c' + chave)
+    novoElemento.setAttribute('class','curso')
+    novoElemento.innerHTML = el
     const btn_lixeira=document.createElement('img')
     btn_lixeira.setAttribute('src','54324.png')
     btn_lixeira.setAttribute('class','btn_lixeira')
-
-    btn_lixeira.addEventListener('click',(evt)=>{
-        caixa1.removeChild(evt.target.parentNode)
-    })
-
-
     novoElemento.appendChild(btn_lixeira)
-    caixa1.appendChild(novoElemento)
+    btn_lixeira.addEventListener('click',(evt)=>{
+        const parent = evt.target.parentNode
+        caixa2.appendChild(parent)
+        parent.classList.add('color')
+    })
+   
+   caixa1.appendChild(novoElemento)
 })
-
