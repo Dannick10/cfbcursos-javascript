@@ -7,38 +7,27 @@
 .caixa{
    text-align: center;
    border: 2px solid red;
-   width: 200px;
+   width: 250px;
    margin: auto;
    box-sizing: border-box;
+  
 }
 
-button{
-   display: block;
-   padding: 20px;
-   background-color: cornflowerblue;
-    margin: 10px auto;
-    border-radius: 10px;
-    color: lightblue;
-    cursor: pointer;
-}
-
-button:hover{
-    background-color: rgb(135, 174, 247);
-    color: rgb(255, 255, 255);
-}
 
 .curso{
     background-color: rgb(143, 143, 143);
     color: white;
     margin: 10px;
     border-top: 2px solid rgb(170, 147, 147);
-    cursor: pointer;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+   
 }
 
-.curso:hover{
-    border: none;
-}
+
 
 .c1{
     border-right: 8px solid green;
@@ -52,4 +41,9 @@ button:hover{
 .color{
     background-color: rgb(170, 171, 228) !important;
     border: none !important;
+}
+
+.btn_lixeira{
+    width: 20px;
+    cursor: pointer;
 }
