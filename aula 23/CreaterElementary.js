@@ -1,6 +1,6 @@
 const caixa1=document.querySelector('#caixa1')
 const curso=[...document.querySelectorAll('.curso')]
-const cursos=['html','css','java script','bootstrap','typescript','node js',' reactNative']
+const cursos=['html','css','java script','bootstrap','typescript','node js',' react Native']
 
 cursos.map((el,chave)=>{ 
     const novoElemento=document.createElement('div')
