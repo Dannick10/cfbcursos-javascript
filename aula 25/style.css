@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.caixa{
+   text-align: center;
+   border: 2px solid red;
+   width: 250px;
+   margin: auto;
+   box-sizing: border-box;
+  
+}
+
+
+
+
+.curso{
+    background-color: rgb(143, 143, 143);
+    color: white;
+    margin: 10px;
+    border-top: 2px solid rgb(170, 147, 147);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+   
+}
+
+
+
+.c1{
+    border-right: 8px solid green;
+
+}
+
+.c2{
+    border-right: 8px solid red;
+}
+
+.color{
+    background-color: rgb(170, 171, 228) !important;
+    border: none !important;
+}
+
+.btn_lixeira{
+    width: 20px;
+    cursor: pointer;
+}
+
