@@ -8,6 +8,8 @@ const btn_cursoremovido = document.querySelector('#btnRemoverCurso')
 const btn_cursoAdicionarAntes = document.querySelector('#btnAdicionarNovoCursoAntes')
 const btn_cursoAdicionarDepois = document.querySelector('#btnAdicionarNovoCursoDepois')
 
+const nomedocurso = document.querySelector('#nomedocurso')
+
 let indice = 0
 
 const criarNovoCurso=(curso)=>{
