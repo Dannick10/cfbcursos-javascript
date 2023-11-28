@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   
+}
+
+.caixa{
+   text-align: center;
+   border: 2px solid red;
+   width: 250px;
+   box-sizing: border-box;
+  background-color: rgb(202, 203, 204);
+}
+
+button{
+    width: 150px;
+    height: 40px;
+    background-color: #025;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+
+
+.curso{
+    background-color: rgb(143, 143, 143);
+    color: white;
+    margin: 10px;
+    border-top: 2px solid rgb(170, 147, 147);
+    box-sizing: border-box;
+    padding: 10px;
+    text-transform: uppercase;
+  
+}
+
+
