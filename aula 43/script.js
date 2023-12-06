@@ -8,11 +8,11 @@ function Pessoa(pnome,pidade){
     this.nome=pnome,
     this.idade=pidade,
 
-    getNome=function(){
+    this.getNome=function(){
         return this.nome 
     }
 
-    getIdade=function(){
+    this.getIdade=function(){
        return this.idade 
     }
 
