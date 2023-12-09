@@ -98,6 +98,7 @@ btn_enviar.addEventListener('click',()=>{
         const carroNormal = new carro(nome.value,portas.value)
         a_carros.push(carroNormal)
         console.log(a_carros)
+        carroNormal.setcor(document.querySelector('#cor').value)
         gerenciarCarrosNormal()
     }else {
         const carroMilitar = new militar(nome.value,portas.value,blindagem.value,municao.value)

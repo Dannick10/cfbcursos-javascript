@@ -2,11 +2,26 @@
     margin: 0;
     padding: 0;
     font-size: 1.2em;
-    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Verdana, sans-serif;
 }
 
 div{
 text-align: center;
+
+}
+
+input{
+    margin: 10px;
+    width: 8em;
+}
+
+button{
+    border: none;
+    width: 8em;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
 }
 
 .carro,.carro2{
@@ -33,6 +48,6 @@ text-align: center;
     border-radius: 10px;
 }
 
-input{
-    width: 5em;
+.box{
+    background-color: grey;
 }

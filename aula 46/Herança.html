@@ -8,20 +8,36 @@
 </head>
 <body>
 
-    <p>Militar<input type="radio" name="carro" id="militar"></p>
-    <p>Normal<input type="radio" name="carro" id="normal"></p>
     <div>
-       <p>nome</p>  
-       <input type="text" id="nome">
+       
+        <div class="box">
+            <p>Militar</p>
+            <input type="radio" name="carro" id="militar"></input>
+            <p>Normal</p>
+            <input type="radio" name="carro" id="normal"></input>
+        </div>
+
+        <h2>Cadastre os carros</h2>
+        <p>nome</p>  
+       <input type="text" id="nome" autocomplete="off"></input>
 
        <p>portas</p>
-       <input type="number" id="portas">
+       <input type="number" id="portas" autocomplete="off"></input>
+
+       <p>Cor</p>
+       <select name="Cor" id="cor">
+        <option value="azul">azul</option>
+        <option value="vermelho">vermelho</option>
+        <option value="amarelo">amarelo</option>
+        <option value="branco">branco</option>
+        <option value="branco">preto</option>
+       </select>
 
        <p>Blindagem</p>
-       <input type="number" id="blindagem">
+       <input type="number" id="blindagem"></input>
 
        <p>Muniçao</p>
-       <input type="text" id="municao">
+       <input type="text" id="municao"></input>
 
         <br>
     <button id="button">Enviar</button>
@@ -33,6 +49,8 @@
     </div>
 
     <div>
+
+        <h2>Mostrar cadastrados</h2>
         <p>Militar<input type="radio" name="ver" id="ver"></p>
     <p>Normal<input type="radio" name="ver" id="ver"></p>
 
