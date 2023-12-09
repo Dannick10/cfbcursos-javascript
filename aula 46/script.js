@@ -9,11 +9,19 @@ const btn_enviar = document.querySelector('#button')
 const select_normal = document.querySelector('#normal')
 const select_militar = document.querySelector('#militar')
 
+const ver_carros = document.querySelectorAll('#ver')
+const btn_ver = document.querySelector('#button_ver')
+
+
+let a_carros=[]
+let a_carrosMilitar=[]
 class carro{ 
     constructor(nome,portas){
         this.nome = nome
         this.portas = portas 
+        this.vel=0
         this.motor = undefined
+        this.cor = undefined
     }
 
     motorligado=function(){
@@ -23,6 +31,10 @@ class carro{
 
     motordesligado=function(){
         this.motor = false
+    }
+
+    setcor=function(cor){
+        this.cor =cor 
     }
 }
 
@@ -34,55 +46,71 @@ class militar extends carro{
     }
 }
 
-
-select_militar.addEventListener('click',()=>{
+select_militar.addEventListener('click',(evt)=>{
     blindagem.removeAttribute('disabled')
     municao.removeAttribute('disabled')
-
 })
 
-select_normal.addEventListener('click',()=>{
-    blindagem.value = 0
-    municao.value = 0
+select_normal.addEventListener('click',(evt)=>{
     blindagem.setAttribute('disabled','disabled')
     municao.setAttribute('disabled','disabled')
 })
 
-const carroNormal = []
-const carroMilitar = []
+
+const gerenciarCarrosNormal=()=>{
+    res.innerHTML = ''
+
+    a_carros.map((el)=>{
+        const div = document.createElement('div')
+        div.setAttribute('class','carro')
+        div.innerHTML += `Normal<hr><br>`
+        div.innerHTML += `Nome: ${el.nome}`
+        div.innerHTML += `<br>Portas: ${el.portas}`   
+        div.innerHTML += `<br>Motor: ${el.motor}`
+        div.innerHTML += `<br>cor: ${el.cor}` 
+        res.appendChild(div)
+
+    })
+}
+
+const gerenciarCarrosMilitar=()=>{
+    res.innerHTML = ''
+
+    a_carrosMilitar.map((el)=>{
+        const div = document.createElement('div')
+        div.setAttribute('class','carro2')
+        div.innerHTML += `Militar<hr><br>`
+        div.innerHTML += `Nome: ${el.nome}`
+        div.innerHTML += `<br>Portas: ${el.portas}`   
+        div.innerHTML += `<br>Motor: ${el.motor}`
+        div.innerHTML += `<br>cor: ${el.cor}` 
+        div.innerHTML += `<br>blindagem: ${el.blindagem}` 
+        div.innerHTML += `<br>municao: ${el.municao}` 
+        res.appendChild(div)
+
+    })
+}
 
 
 
 btn_enviar.addEventListener('click',()=>{
-    res.innerHTML = ''
-    if(select_normal.checked == true){
-        const novoCarro = new carro(nome.value,portas.value)
-        carroNormal.push(novoCarro)
-        
-        carroNormal.map((el)=>{
-        el.motordesligado()
-        res.innerHTML += ` NOME ${el.nome }`
-        res.innerHTML += `<br>PORTAS ${el.portas }`
-        res.innerHTML += `<br>MOTOR ${el.motor?'LIGADO':'DEsligado' }`
-           
-        })
-
+    if(select_normal.checked){
+        const carroNormal = new carro(nome.value,portas.value)
+        a_carros.push(carroNormal)
+        console.log(a_carros)
+        gerenciarCarrosNormal()
+    }else {
+        const carroMilitar = new militar(nome.value,portas.value,blindagem.value,municao.value)
+        a_carrosMilitar.push(carroMilitar)
+        gerenciarCarrosMilitar()
+    }
     
+})
+
+btn_ver.addEventListener('click',()=>{
+    if(ver_carros[0].checked){
+        gerenciarCarrosMilitar()
     } else {
-        const novoCarro = new militar(nome.value,portas.value,blindagem.value,municao.value)
-        carroMilitar.push(novoCarro)
-        
-        carroMilitar.map((el)=>{
-        el.motordesligado()
-        res.innerHTML += ` NOME ${el.nome }`
-        res.innerHTML += `<br>PORTAS ${el.portas }`
-        res.innerHTML += `<br>MOTOR ${el.motor?'LIGADO':'DEsligado' }`
-        res.innerHTML += `<br>Blindagem ${el.blindagem}`
-        res.innerHTML += `<br>munição ${el.municao}`
-           
-        })
-
-        novoCarro.value = 0
-
+        gerenciarCarrosNormal()
     }
 })
