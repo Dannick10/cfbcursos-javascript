@@ -6,6 +6,7 @@ const display = document.querySelector('.calculator__display')
 const clear = document.querySelector('.clear')
 const decimal = document.querySelector('.decimal')
 const copy = document.querySelector('.copy')
+const del = document.querySelector('.del')
 
 
 let verificop = false
@@ -26,6 +27,19 @@ number.map((el)=>{
 
 paren.map((el)=>{
     el.addEventListener('click',(evt)=>{
+
+        if(verificParen == true){
+            if(evt.target.innerHTML != display.innerHTML){
+                const back =  display.innerHTML;
+                display.innerHTML = back.substring(0, back.length -1) 
+                if(evt.target.innerHTML == 'x'){
+                    display.innerHTML += '*'
+                } else{
+                display.innerHTML += evt.target.innerHTML
+                console.log(evt.target)
+                }
+            }
+        }
   
         if(!verificParen){
             verificParen= true
@@ -48,6 +62,20 @@ op.map((el)=>{
             verificop = true
           
         }
+
+        if(verificop == true){
+            if(evt.target.innerHTML != display.innerHTML){
+                const back =  display.innerHTML;
+                display.innerHTML = back.substring(0, back.length -1) 
+                if(evt.target.innerHTML == 'x'){
+                    display.innerHTML += '*'
+                } else{
+                display.innerHTML += evt.target.innerHTML
+                console.log(evt.target)
+                }
+            }
+        }
+
         
         if(!verificop){
             
@@ -62,6 +90,7 @@ op.map((el)=>{
             }
         
         }
+
     
     
     })
@@ -94,4 +123,13 @@ clear.addEventListener('click',(evt)=>{
 copy.addEventListener('click',(el)=>{
         navigator.clipboard.writeText(display.innerHTML)
     
+})
+
+del.addEventListener('click',(el)=>{
+    const back =  display.innerHTML;
+    display.innerHTML = back.substring(0, back.length -1) 
+
+    if(display.innerHTML == ''){
+        display.innerHTML = '0'
+    }
 })
