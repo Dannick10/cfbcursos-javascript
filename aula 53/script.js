@@ -1,16 +1,21 @@
-const number = [...document.querySelectorAll('#number')]
+const number = [...document.querySelectorAll('#number')] 
+const paren = [...document.querySelectorAll('.paren')]
 const op = [...document.querySelectorAll('.key--operator')]
 const equal = document.querySelector('.key--equal')
 const display = document.querySelector('.calculator__display')
 const clear = document.querySelector('.clear')
 const decimal = document.querySelector('.decimal')
+const copy = document.querySelector('.copy')
+
 
 let verificop = false
 let verificDecimal = false
+let verificParen = false
 
 number.map((el)=>{
     el.addEventListener('click',(evt)=>{
         verificop = false
+        verificParen = false
        
         if(display.innerHTML == '0'){
            display.innerHTML = ''
@@ -19,15 +24,33 @@ number.map((el)=>{
     })
 })
 
-op.map((el)=>{
+paren.map((el)=>{
     el.addEventListener('click',(evt)=>{
+  
+        if(!verificParen){
+            verificParen= true
       
         if(display.innerHTML == '0'){
+           display.innerHTML = ''
+        }
+
+    
+      display.innerHTML += evt.target.innerHTML
+    }
+    
+    })
+})
+
+op.map((el)=>{
+    el.addEventListener('click',(evt)=>{
+
+        if(display.innerHTML == '0'){
             verificop = true
-           
+          
         }
         
         if(!verificop){
+            
             verificDecimal = false
             verificop = true
             if(evt.target.innerHTML == 'x'){
@@ -37,7 +60,9 @@ op.map((el)=>{
             }else{
             display.innerHTML += evt.target.innerHTML
             }
+        
         }
+    
     
     })
 })
@@ -52,12 +77,21 @@ decimal.addEventListener('click',(evt)=>{
 })
 
 equal.addEventListener('click',(evt)=>{
-    verificDecimal = false
     verificop = false
+    verificDecimal = false
+     verificParen = false
     const res = eval(display.innerHTML)
     display.innerHTML = res
 })
 
 clear.addEventListener('click',(evt)=>{
     display.innerHTML = '0'
+     verificop = false
+    verificDecimal = false
+     verificParen = false
+})
+
+copy.addEventListener('click',(el)=>{
+        navigator.clipboard.writeText(display.innerHTML)
+    
 })
