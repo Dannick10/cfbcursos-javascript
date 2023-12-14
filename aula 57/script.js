@@ -1,5 +1,17 @@
 const div_data = document.querySelector('#data')
 const div_relogio = document.querySelector('#relogio')
+const input_relogio = document.querySelector('#alarme_Text')
+const btn_ativar = document.querySelector('#ativar')
+const btn_parar = document.querySelector('#parar')
+const hora_alarme = document.querySelector('.horadoalarme')
+const som_alarme = new Audio('smartphone_vibrating_alarm_silent-7040.mp3')
+
+som_alarme.loop=-1
+
+let ts_atual=null
+let ts_alarme=null 
+let alarme_ativado = false 
+let alarme_tocando= false
 
 const data=new Date()
 
@@ -19,17 +31,42 @@ const relogio=()=>{
     hora=hora<10?'0'+hora:hora
 
     let minuto = data.getMinutes()
-    minuto=minuto<10?'0'+hora:hora
+    minuto=minuto<10?'0'+minuto:minuto
 
     let segundo = data.getSeconds()
     segundo=segundo<10?'0'+segundo:segundo
    
     const hora_completa=`${hora}:${minuto}:${segundo}`
     div_relogio.innerHTML  = hora_completa
+
+    if(alarme_ativado && !alarme_tocando){
+        if(data.getTime() >= ts_alarme){
+            alarme_tocando=true
+            som_alarme.play()
+            
+        }
+    }
 }
 
 
 const intervalo=setInterval(relogio,1000) 
+
+btn_ativar.addEventListener('click',()=>{
+    ts_atual=Date.now()
+    ts_alarme=ts_atual+(input_relogio.value * 1000)
+    alarme_ativado=true
+    const dt_alarme=new Date(ts_alarme)
+    hora_alarme.innerHTML =  `${dt_alarme.getHours()}:${dt_alarme.getMinutes()}:${dt_alarme.getSeconds()}`
+})
+
+btn_parar.addEventListener('click',()=>{
+    alarme_ativado=false
+    alarme_tocando=false
+    input_relogio.value = 0 
+    som_alarme.pause()
+    som_alarme.currentTime = 0
+})
+
 
 
 
