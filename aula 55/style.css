@@ -1,11 +1,8 @@
 .numero{
-  font-size: large;
+ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ font-size: 2em;
+ border: 2px solid;
+
+ text-align: center;
 }
 
-.ok{
-  color: #00f;
-}
-
-.erro{
-  color: #f00;
-}

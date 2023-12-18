@@ -1,0 +1,105 @@
+const div_data = document.querySelector('#data')
+const div_relogio = document.querySelector('#relogio')
+const input_relogio = document.querySelector('#alarme_Text')
+const btn_ativar = document.querySelector('#ativar')
+const btn_parar = document.querySelector('#parar')
+const hora_alarme = document.querySelector('.horadoalarme')
+const som_alarme = new Audio('smartphone_vibrating_alarm_silent-7040.mp3')
+
+som_alarme.loop=-1
+
+let ts_atual=null
+let ts_alarme=null 
+let alarme_ativado = false 
+let alarme_tocando= false
+
+
+
+const relogio=()=>{
+    const data=new Date()
+    let hora = data.getHours()
+    hora=hora<10?'0'+hora:hora
+
+    let minuto = data.getMinutes()
+    minuto=minuto<10?'0'+minuto:minuto
+
+    let segundo = data.getSeconds()
+    segundo=segundo<10?'0'+segundo:segundo
+   
+    const hora_completa=`${hora}:${minuto}:${segundo}`
+    div_relogio.innerHTML  = hora_completa
+
+    if(alarme_ativado && !alarme_tocando){
+        if(data.getTime() > ts_alarme){
+            alarme_tocando = true
+            som_alarme.play()
+        }
+    }
+
+}
+
+const intervalo = setInterval(relogio,1000)
+
+btn_ativar.addEventListener('click',()=>{
+     ts_atual = Date.now()
+     ts_alarme = ts_atual + (input_relogio.value*1000)
+    alarme_ativado = true
+    const dt_time = new Date(ts_alarme)
+    hora_alarme.innerHTML = `${dt_time.getHours()}:${dt_time.getMinutes()}:${dt_time.getSeconds()}`
+})
+
+btn_parar.addEventListener('click',()=>{
+    alarme_ativado=false
+    alarme_tocando=false
+    input_relogio.value = 0 
+    som_alarme.pause()
+    som_alarme.currentTime = 0
+})
+
+
+
+
+/*
+getDate()	O dia do mês	1 a 31
+getUTCDate()
+getDay()	O valor inteiro do dia da semana	0 a 6
+getUTCDay()
+getFullYear()	O ano com quatro dígitos	1900 em diante
+getUTCFullYear
+getHours()	A hora do dia	0 a 23
+getUTCHours()
+getMilliseconds()	O número de milissegundos desde o último segundo	0 a 999
+getUTCMilliseconds()
+getMinutes()	O número de minutos desde a última hora	0 a 59
+getUTCMinutes()
+getMonth()	O mês do ano	0 a 11
+getUTCMonth()
+getSeconds()	O número de segundos desde o último minuto	0 a 59
+getUTCSeconds()
+getTime()	O número de milissegundos desde a meia noite de 1º de janeiro de 1970
+getTimezoneOffset()	Diferença entre hora local e GMT em minutos	0 a 1439
+getYear()	O ano da data	0 a 99 para os anos de 1900 a 1999 e quatro dígitos em diante
+parse()	Dado um string de data/hora, retorna o número de milissegundos desde meia noite de 1º de jan. de 1970
+setDate()	Define o dia, dado o número entre 1 e 31	Data em milissegundos
+setUTCDate()	Data em milissegundos
+setFullYear()	Data em milissegundos
+setUTCFullYear()	Data em milissegundos
+setHours()	Define a hora, dado um número entre 0 e 23	Data em milissegundos
+setUTCHours()
+setMilliseconds()	Define os milissegundos, dado um número	Data em milissegundos
+setUTCMilliseconds()	Data em milissegundos
+setMinutes()	Define os minutos, dado um número entre 0 e 59	Data em milissegundos
+setUTCMinutes()
+setMonth()	Define o mês, dado um número entre 0 e 11.	Data em milissegundos
+setUTCMonth()
+setSeconds()	Define os segundos, dado um número entre 0 e 59	Data em milissegundos
+setUTCSeconds()
+setTime()	Define uma data, dado um número de milissegundos desde janeiro de 1970	Data em milissegundos
+setYear()	Define o ano, dado um número de dois ou quatro dígitos	Data em milissegundos
+toGMTString()	A data e hora GMT em formato de string	Day dd mmm yyyy, hh:mm:ss GMT
+toUTCString()
+TolocaleString()	A data e hora local em formato de string	Varia de acordo com o SO, localidade e navegador
+toString()	A data e hora local em formato de string	Varia de acordo com o SO e o navegador
+UTC()	Sendo dada uma data no formato de ano, mês e dia (e horas, minutos, segundos e milissegundos opcionais), retorna o número de milissegundos desde a meia noite de 1º de jan. de 1970	Data em milissegundos
+valueOf()	Número de milissegundos desde a meia noite de 1º de janeiro de 1970	Data em miliss
+*/
