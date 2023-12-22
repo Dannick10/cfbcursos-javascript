@@ -1,0 +1,32 @@
+*{
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+table{
+ width: 300px;
+ font: 17px calibri;
+}
+
+th,td,table{
+ 
+  border-collapse: collapse;
+  padding: 2px 3px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+input,
+button{
+  margin-bottom: 10px;
+}
+
+
+button{
+  background-color: #eee;
+  padding: 5px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
