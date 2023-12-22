@@ -10,7 +10,7 @@ btn_url.addEventListener('click',(evt)=>{
   //window.history.go(1)
     console.log(window.history.length)
     console.log(url.value)
-    window.location = url.value
+    window.location =url.value
    
 })
 
