@@ -12,18 +12,22 @@ let contato={
         div.setAttribute('class','contato')
 
         const p_nome = document.createElement('p')
-       
-        const p_telefone = document.createElement('p')
-      
+        const p_telefone = document.createElement('p')  
         const p_email = document.createElement('p')
-      
+        
+       
+        DestinoDom.innerHTML = ''
 
-        div.innerHTML = `Nome = ${novoContato.nome} <br> telefone = ${novoContato.telefone} <br> Email = ${novoContato.email}`
+        contatos.forEach((c)=>{
+            div.innerHTML += `Nome = ${c.nome} <br> telefone = ${c.telefone} <br> Email = ${c.email}`
 
-        div.appendChild(p_nome)
-        div.appendChild(p_telefone)
-        div.appendChild(p_email)
-        DestinoDom.appendChild(div)
+            div.appendChild(p_nome)
+            div.appendChild(p_telefone)
+            div.appendChild(p_email)
+            DestinoDom.appendChild(div)
+        })
+
+       
       
     }
 

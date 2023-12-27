@@ -1,3 +1,4 @@
+import { contatos } from './bancodeDados.js'
 import c from './contatos.js'
 
 const listaContatos= document.querySelector('#listaContatos')
@@ -9,6 +10,7 @@ btn_gravar.addEventListener('click',()=>{
         telefone:document.getElementById('f_telefone').value,
         email:document.getElementById('f_email').value
     }
+    contatos.push(cont)
     
     c.addContato(cont,listaContatos)
 
