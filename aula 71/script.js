@@ -1,26 +1,18 @@
-class Jogador {
-    constructor(nome) {
-        this.nome = nome;
-        this.id = Symbol();
-    }
+const nome = Symbol('nome')
+const numero= Symbol('numero')
+const uniforme= Symbol('uniforme')
+
+const jogador={ 
+    nome:'j1',
+    [numero]: '10',
 }
 
-let Jogadores = [
-    new Jogador('s1'),
-    new Jogador('s1'),
-    new Jogador('s2'),
-    new Jogador('s3')
-];
+jogador[uniforme]= 'amarelo'
 
-let s = [];
+for(p in jogador){
+    console.log(p)
+}
 
-let s_jogadores = Jogadores.filter((j) => {
-    return j.nome == 's1' || j.nome == 's2';
-});
-
-s = s_jogadores.map((j) => {
-    return j.id;
-});
-
-console.log(s_jogadores);
-console.log(s);
+console.log(jogador.nome)
+console.log(jogador[numero])
+console.log(jogador[uniforme])
