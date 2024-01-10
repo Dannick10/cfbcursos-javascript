@@ -1,7 +1,7 @@
 
 
 
-const endpoint = 'https://43955f34-3630-43b6-a919-feb552573a60-00-34bxkhtriukjh.janeway.replit.dev'
+const endpoint = 'http://127.0.0.1:1880/gravar'
 
 
 const api_dados=()=>{
@@ -26,7 +26,7 @@ let cabecalho={
 }
 
 const gravarDados=()=>{
-    const endpoint= 'https://43955f34-3630-43b6-a919-feb552573a60-00-34bxkhtriukjh.janeway.replit.dev'
+    const endpoint= 'http://127.0.0.1:1880/gravar'
 
     fetch(endpoint)
     .then(res=>res.json())
@@ -35,3 +35,7 @@ const gravarDados=()=>{
     })
 
 }
+
+document.querySelector('#btn_validar').addEventListener('click',()=>{
+    gravarDados()
+})

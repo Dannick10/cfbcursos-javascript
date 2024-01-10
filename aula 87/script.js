@@ -7,8 +7,9 @@ document.querySelector('#btn_validar').addEventListener('click',(evt)=>{
     
     if(f_nota.checkValidity){
         msg=f_nota.validationMessage
+        msg= f_nota.setCustomValidity('coloca a senha porra')
     }
-
+    f_msg.reportValidity()
     f_msg.innerHTML = msg
     evt.preventDefault()
 })
